@@ -1,0 +1,115 @@
+@import 'base.sass'
+@import '~bootstrap/scss/bootstrap.scss'
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&subset=latin-ext')
+
+$primary-color: #BA1200
+$text-color: #031927
+$font-family: 'Lato', sans-serif
+
+html
+  box-sizing: border-box
+
+html,
+body 
+  margin: 0
+  padding: 0
+  height: 100%
+  font-family: $font-family !important
+
+*,
+*:before,
+*:after 
+  box-sizing: inherit
+
+a
+  color: $primary-color
+
+  &:hover
+    color: $primary-color
+
+.btn-primary
+  background-color: #242C42
+  border-color: transparent
+  cursor: pointer
+
+  &:hover
+    background-color: $primary-color
+    
+
+body
+  background-color: #031927
+
+.footer-text
+  color: #F8F7FF !important 
+  text-align: center !important
+  margin-bottom: 50px !important
+  opacity: 0.25 !important
+  margin-top: 25px !important
+
+
+header
+  background-color: #FFF
+  box-shadow: 3px 0 8px rgba(0,0,0, 0.3)
+  position: fixed
+  width: 100%
+
+  .navbar-brand
+    color: $primary-color !important
+    font-family: $font-family
+    font-size: 3.25rem
+    margin-right: auto
+    margin-left: auto
+
+  .nav-link
+    color: $text-color
+    font-family: $font-family
+    text-transform: uppercase
+
+    &:hover
+      color: $primary-color
+
+  .active
+    color: $primary-color
+    font-weight: bold
+    
+  
+  .navbar-collapse
+    flex-basis: 100%
+    @media (min-width: 992px)
+      flex-basis: auto
+
+.home-container
+  background-color: $primary-color
+  height: 600px
+  background-size: cover
+  padding-top: 60px
+
+  form
+    width: 306px
+    margin: 50px auto 5px auto
+    @media (max-width: 575px)
+      width: 190px
+
+  a
+    font-size: 13px
+    margin-top: 5px
+
+  p
+    text-align: center
+    margin-top: 40px
+    font-size: 18px
+    color: $text-color
+
+
+  h1
+    text-align: center
+    color: $text-color
+    font-family: $font-family
+    text-transform: uppercase
+    font-weight: bold
+    margin-top: 160px
+    line-height: 1.3
+    text-shadow: 3px 0 15px rgba(0,0,0,0.6)
+    font-size: 27px
+
