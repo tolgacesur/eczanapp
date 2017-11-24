@@ -1,5 +1,5 @@
 {
-  "name": "Eczane Bul",
+  "name": "eczane-bul",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -14,8 +14,7 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
-    "type": "git",
-    "url": ""
+    "type": "git"
   },
   "author": "",
   "license": "MIT",
