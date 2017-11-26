@@ -32,7 +32,8 @@
     "redbox-react": "^1.3.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "rimraf": "^2.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -80,7 +81,6 @@
     "phantomjs-prebuilt": "^2.1.14",
     "react-addons-test-utils": "^15.5.1",
     "react-test-renderer": "^15.5.4",
-    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.5",
     "sinon": "^2.2.0",
     "sinon-chai": "^2.10.0",
