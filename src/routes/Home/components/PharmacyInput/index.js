@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pharmacyInit } from 'store/pharmacyReducer'
+import PharmacyResult from '../PharmacyResult'
 
 class PharmacyInput extends Component {
 
@@ -34,20 +35,34 @@ class PharmacyInput extends Component {
     
 
     render() {
+        
+        if (!this.props.pharmacyResponse.name) {
 
-        return (
-            <div>
-                <form className="form-inline">
-                    <div className="form-group mx-sm-3">
-                        <input type="text" className="form-control" onChange={this.cityChanged.bind(this)} value={this.state.city} placeholder="Şehir adı yazın" />
-                    </div>
-                    <button type="button" className="btn btn-primary search-btn" onClick={this.getPharmacy.bind(this)} >Ara</button>
-                </form>
+            return (
+                <div>
+                    <form className="form-inline">
+                        <div className="form-group mx-sm-3">
+                            <input type="text" className="form-control" onChange={this.cityChanged.bind(this)} value={this.state.city} placeholder="Şehir adı yazın" />
+                        </div>
+                        <button type="button" className="btn btn-primary search-btn" onClick={this.getPharmacy.bind(this)} >Ara</button>
+                    </form>
+    
+    
+                </div>
+            )
+            
+        } else {
 
+            return <PharmacyResult />
+            
+        }
 
-            </div>
-        )
+    }
+}
 
+const mapStateToProps = (state) => {
+    return {
+        pharmacyResponse: state.pharmacy
     }
 }
 
@@ -57,4 +72,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(undefined, mapDispatchToProps)(PharmacyInput);
+export default connect(mapStateToProps, mapDispatchToProps)(PharmacyInput);
