@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pharmacyInit } from 'store/pharmacyReducer'
 
-class SearchInput extends Component {
+class PharmacyInput extends Component {
 
     constructor() {
         super();
@@ -57,4 +57,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(undefined, mapDispatchToProps)(SearchInput);
+export default connect(undefined, mapDispatchToProps)(PharmacyInput);

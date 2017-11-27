@@ -1,11 +1,11 @@
 import React from 'react'
-import SearchInput from './SearchInput'
+import PharmacyInput from './PharmacyInput'
 
 export const HomeView = () => (
   <div className="home-container">
     <div className="container">
       <h1>Nöbetçi Eczane Bulun !</h1>
-      <SearchInput />
+      <PharmacyInput />
     </div>
   </div>
 )
