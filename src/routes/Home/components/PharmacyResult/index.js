@@ -26,7 +26,7 @@ class PharmacyResult extends React.Component {
         return (
             <div>
                 <br />
-                <table className="table table-dark">
+                <table className="table table-responsive table-dark">
                     <thead>
                         <tr>
                             <th scope="col">#</th>

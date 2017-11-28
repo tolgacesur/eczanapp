@@ -10,7 +10,7 @@ class PharmacyInput extends Component {
         super();
 
         this.state = {
-            city: ''
+            city: ""
         }
 
     }
@@ -23,7 +23,7 @@ class PharmacyInput extends Component {
 
 
     getPharmacy() {
-        axios.get(`http://api.eczanapp.space/${this.state.city}`)
+        axios.get(`http://localhost/eczane-bul-api/pharmacy/${this.state.city}`)
             .then(res => {
                 const pharmacy = res.data;
                 this.props.pharmacyData(pharmacy);
@@ -36,6 +36,8 @@ class PharmacyInput extends Component {
                 "eczaneTelefon": " +903708181124"
             }
         ] */
+
+        
     }
 
 
