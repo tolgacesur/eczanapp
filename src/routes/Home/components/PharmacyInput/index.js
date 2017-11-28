@@ -23,7 +23,7 @@ class PharmacyInput extends Component {
 
 
     getPharmacy() {
-        axios.get(`http://api.eczanapp.space/${this.state.city}`)
+        axios.get(`http://api.eczanapp.space/pharmacy/${this.state.city}`)
             .then(res => {
                 const pharmacy = res.data;
                 this.props.pharmacyData(pharmacy);
