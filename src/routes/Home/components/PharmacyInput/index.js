@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux';
 import { pharmacyInit } from 'store/pharmacyReducer'
 import PharmacyResult from '../PharmacyResult'
+import Spinner from '../Spinner'
 
 class PharmacyInput extends Component {
 
@@ -58,7 +59,7 @@ class PharmacyInput extends Component {
 
         } else if (this.state.dataLoaded == false && this.state.getData == true) {
 
-            return <div>yükleniyor!</div>
+            return <Spinner />
 
         } else if (this.state.dataLoaded == true && this.state.getData == false) {
 
