@@ -12,17 +12,10 @@ class PharmacyInput extends Component {
         super();
 
         this.state = {
-            city: "",
             dataLoaded: false,
             getData: false
         }
 
-    }
-
-    cityChanged(e) {
-        this.setState({
-            city: e.target.value
-        })
     }
 
 
@@ -30,10 +23,10 @@ class PharmacyInput extends Component {
         this.setState({
             getData: true
         })
-        axios.get(`http://api.eczanapp.space/pharmacy/${this.state.city}`)
+        axios.get(`http://api.eczanapp.space/pharmacy/${this.props.selectedCity}`)
             .then((res) => {
                 const pharmacy = res.data;
-                this.props.pharmacyData(pharmacy, this.state.city);
+                this.props.pharmacyData(pharmacy, this.props.selectedCity);
                 this.setState({
                     getData: false,
                     dataLoaded: true
@@ -82,7 +75,8 @@ class PharmacyInput extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        pharmacyResponse: state.pharmacy
+        pharmacyResponse: state.pharmacy,
+        selectedCity: state.selectedCity
     }
 }
 

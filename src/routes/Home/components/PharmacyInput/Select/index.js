@@ -1,7 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import cities from './il-bolge.json'
+import { selectedCity } from 'store/selectedCityReducer'
 
 class Select extends React.Component {
+
+    constructor(){
+        super();
+
+        this.state = {
+            selectCity : ""
+        }
+    }
+
+    handleChange(event) {
+        this.setState({selectCity: event.target.value});
+        this.props.selectCity(event.target.value);
+    } 
 
     render() {
 
@@ -22,8 +37,8 @@ class Select extends React.Component {
 
         return (
             <div>
-                <select className="form-control">
-                    <option>Lütfen İl Seçin</option>
+                <select className="form-control" value={this.state.selectCity} onChange={this.handleChange.bind(this)}>
+                    <option value="0">Lütfen İl Seçin</option>
                     {cityItems}
                 </select>
             </div>
@@ -33,4 +48,11 @@ class Select extends React.Component {
 
 }
 
-export default Select;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectCity: (city) => dispatch(selectedCity(city))
+    }
+}
+
+
+export default connect(undefined,mapDispatchToProps)(Select);
