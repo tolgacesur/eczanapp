@@ -30,14 +30,22 @@ class PharmacyInput extends Component {
             getData : true
         })
         axios.get(`http://api.eczanapp.space/pharmacy/${this.state.city}`)
-            .then(res => {
+            .then((res) => {
                 const pharmacy = res.data;
                 this.props.pharmacyData(pharmacy,this.state.city);
                 this.setState({
                     getData : false,
                     dataLoaded : true
                 })
-            });
+            },
+            (err) => {
+                console.log("hata");
+                this.setState({
+                    getData : false,
+                    dataLoaded : false
+                })
+            }
+        );
     }
 
 
