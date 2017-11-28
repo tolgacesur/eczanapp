@@ -15,6 +15,7 @@ class PharmacyResult extends React.Component {
                 <tr>
                     <th scope="row" key={item.toString()}>{index + 1}</th>
                     <td>{item.eczaneAdi}</td>
+                    <td>{item.eczaneIlce}</td>
                     <td>{item.eczaneAdres}</td>
                     <td>{item.eczaneTelefon}</td>
                 </tr>
@@ -33,6 +34,7 @@ class PharmacyResult extends React.Component {
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Eczane Adı</th>
+                            <th scope="col">İlçe</th>
                             <th scope="col">Adres</th>
                             <th scope="col">Telefon</th>
                         </tr>
