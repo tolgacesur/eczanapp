@@ -9,7 +9,6 @@ class PharmacyResult extends React.Component {
     }
 
     render() {
-
         let pharmacyItems = this.props.pharmacyResponse.map((item, index) => {
 
             return (
@@ -25,6 +24,8 @@ class PharmacyResult extends React.Component {
 
         return (
             <div>
+                <br />
+                    <h2>{this.props.pharmacyResponse.length} Adet Eczane bulundu.</h2>
                 <br />
                 <table className="table table-responsive table-dark">
                     <thead>
