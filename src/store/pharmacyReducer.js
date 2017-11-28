@@ -12,7 +12,7 @@ export function pharmacyInit (pharmacy = {}) {
 export default function pharmacyReducuer (state = {},action){
     switch (action.type) {
         case PHARMACY_INIT:
-            return Object.assign({},action.payload);
+            return action.payload;
     
         default:
             return state;

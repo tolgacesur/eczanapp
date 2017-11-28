@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import { connect } from 'react-redux';
 import { pharmacyInit } from 'store/pharmacyReducer'
 import PharmacyResult from '../PharmacyResult'
@@ -9,34 +10,37 @@ class PharmacyInput extends Component {
         super();
 
         this.state = {
-            city: ""
+            city: ''
         }
 
     }
 
     cityChanged(e) {
         this.setState({
-            city : e.target.value
+            city: e.target.value
         })
     }
 
 
-    getPharmacy(){
-        // http Call
-        console.log(this.state)
-        const pharmacy = {
-            name: "eczane adı",
-            adres: "Aşıkpaşa Mah.",
-            telefon: "+905072293584"
-        }
-
-        this.props.pharmacyData(pharmacy);
+    getPharmacy() {
+        axios.get(`http://api.eczanapp.space/${this.state.city}`)
+            .then(res => {
+                const pharmacy = res.data;
+                this.props.pharmacyData(pharmacy);
+            });
+            /*
+        const pharmacy = [
+            {
+                "eczaneAdi": " Mutlu Eczanesi",
+                "eczaneAdres": " Orta Sokak No:7/B",
+                "eczaneTelefon": " +903708181124"
+            }
+        ] */
     }
-    
+
 
     render() {
-        
-        if (!this.props.pharmacyResponse.name) {
+        if (Object.keys(this.props.pharmacyResponse).length === 0 && this.props.pharmacyResponse.constructor === Object) {
 
             return (
                 <div>
@@ -46,15 +50,15 @@ class PharmacyInput extends Component {
                         </div>
                         <button type="button" className="btn btn-primary search-btn" onClick={this.getPharmacy.bind(this)} >Ara</button>
                     </form>
-    
-    
+
+
                 </div>
             )
-            
+
         } else {
 
             return <PharmacyResult />
-            
+
         }
 
     }
