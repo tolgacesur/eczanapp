@@ -3,9 +3,9 @@ import React from 'react'
 
 class Spinner extends React.Component {
 
-    render () {
+    render() {
         return (
-        <div>Yükleniyor</div>
+            <div className="loading">Yükleniyor</div>
         )
     }
 }
