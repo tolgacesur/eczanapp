@@ -23,21 +23,11 @@ class PharmacyInput extends Component {
 
 
     getPharmacy() {
-        axios.get(`http://localhost/eczane-bul-api/pharmacy/${this.state.city}`)
+        axios.get(`http://api.eczanapp.space/${this.state.city}`)
             .then(res => {
                 const pharmacy = res.data;
                 this.props.pharmacyData(pharmacy);
             });
-            /*
-        const pharmacy = [
-            {
-                "eczaneAdi": " Mutlu Eczanesi",
-                "eczaneAdres": " Orta Sokak No:7/B",
-                "eczaneTelefon": " +903708181124"
-            }
-        ] */
-
-        
     }
 
 
