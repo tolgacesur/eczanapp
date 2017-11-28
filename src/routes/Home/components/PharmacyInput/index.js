@@ -10,7 +10,9 @@ class PharmacyInput extends Component {
         super();
 
         this.state = {
-            city: ""
+            city: "",
+            dataLoaded: false,
+            getData: false
         }
 
     }
@@ -23,16 +25,23 @@ class PharmacyInput extends Component {
 
 
     getPharmacy() {
+        this.setState({
+            getData : true
+        })
         axios.get(`http://api.eczanapp.space/pharmacy/${this.state.city}`)
             .then(res => {
                 const pharmacy = res.data;
                 this.props.pharmacyData(pharmacy);
+                this.setState({
+                    getData : false,
+                    dataLoaded : true
+                })
             });
     }
 
 
     render() {
-        if (Object.keys(this.props.pharmacyResponse).length === 0 && this.props.pharmacyResponse.constructor === Object) {
+        if (Object.keys(this.props.pharmacyResponse).length === 0 && this.props.pharmacyResponse.constructor === Object && this.state.getData == false) {
 
             return (
                 <div>
@@ -47,11 +56,16 @@ class PharmacyInput extends Component {
                 </div>
             )
 
-        } else {
+        } else if (this.state.dataLoaded == false && this.state.getData == true) {
+
+            return <div>yükleniyor!</div>
+
+        } else if (this.state.dataLoaded == true && this.state.getData == false) {
 
             return <PharmacyResult />
 
         }
+
 
     }
 }
