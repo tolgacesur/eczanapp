@@ -1,10 +1,10 @@
 const PHARMACY_INIT = 'PHARMACY_INIT';
 
 /// action creater
-export function pharmacyInit (pharmacy = {}) {
+export function pharmacyInit (pharmacy = {},city = {}) {
     return {
         type: PHARMACY_INIT,
-        payload: pharmacy
+        payload: {pharmacy,city}
     }
 }
 

@@ -32,7 +32,7 @@ class PharmacyInput extends Component {
         axios.get(`http://api.eczanapp.space/pharmacy/${this.state.city}`)
             .then(res => {
                 const pharmacy = res.data;
-                this.props.pharmacyData(pharmacy);
+                this.props.pharmacyData(pharmacy,this.state.city);
                 this.setState({
                     getData : false,
                     dataLoaded : true
@@ -79,7 +79,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        pharmacyData: (pharmacy) => dispatch(pharmacyInit(pharmacy))
+        pharmacyData: (pharmacy,city) => dispatch(pharmacyInit(pharmacy,city))
     }
 }
 

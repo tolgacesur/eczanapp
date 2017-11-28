@@ -25,8 +25,10 @@ class PharmacyResult extends React.Component {
         return (
             <div>
                 <br />
-                    <h2>{this.props.pharmacyResponse.length} Adet Eczane bulundu.</h2>
+                <h2>{this.props.pharmacyResponse.length} Adet Eczane bulundu.</h2>
                 <br />
+                <br />
+                <h1 className="city">{this.props.pharmacyCity}</h1>
                 <table className="table table-responsive table-dark">
                     <thead>
                         <tr>
@@ -49,7 +51,8 @@ class PharmacyResult extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        pharmacyResponse: state.pharmacy
+        pharmacyResponse: state.pharmacy.pharmacy,
+        pharmacyCity: state.pharmacy.city
     }
 }
 
