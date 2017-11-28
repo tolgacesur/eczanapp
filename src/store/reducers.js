@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 import pharmacyReducer from './pharmacyReducer'
+import selectedCityReducer from './selectedCityReducer'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     pharmacy: pharmacyReducer,
+    selectedCity: selectedCityReducer,
     ...asyncReducers
   })
 }
