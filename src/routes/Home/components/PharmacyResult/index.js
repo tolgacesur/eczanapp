@@ -23,29 +23,47 @@ class PharmacyResult extends React.Component {
 
         });
 
-        return (
-            <div>
-                <br />
-                <h2>{this.props.pharmacyResponse.length} Adet Eczane bulundu.</h2>
-                <br />
-                <h1 className="city">{this.props.pharmacyCity}</h1>
-                <table className="table table-responsive table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Eczane Adı</th>
-                            <th scope="col">İlçe</th>
-                            <th scope="col">Adres</th>
-                            <th scope="col">Telefon</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {pharmacyItems}
-                    </tbody>
-                </table>
-                <br />
-            </div>
-        )
+        if (!this.props.pharmacyResponse.length == 0) {
+
+            return (
+                <div>
+                    <br />
+                    <h2>{this.props.pharmacyResponse.length} Adet Eczane bulundu.</h2>
+                    <br />
+                    <h1 className="city">{this.props.pharmacyCity}</h1>
+                    <table className="table table-responsive table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Eczane Adı</th>
+                                <th scope="col">İlçe</th>
+                                <th scope="col">Adres</th>
+                                <th scope="col">Telefon</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {pharmacyItems}
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
+            )
+
+        } else {
+            return (
+                <div>
+                    <table className="table table-responsive table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col" style={{textAlign: 'center'}}>Sonuç bulunamadı</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            )
+        }
+
+
     }
 }
 
