@@ -12,7 +12,7 @@ class Header extends React.Component {
         return (
             <header>
                 <nav className="container navbar">
-                    <a className="navbar-brand" href="#">Nöbetçi App</a>
+                    <a className="navbar-brand" href="http://eczanapp.space/">Nöbetçi App</a>
                 </nav>
             </header>
         )
